@@ -1,0 +1,38 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="mb-3">
+    <label for="filterText" class="form-label">Ürün ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"
+        placeholder="arama ifadesi giriniz">
+<!-- [(ngModel)]="filterText" ->>bu ifade ts deki filterText ile bağlanmamızı sağlıyor -->
+</div>
+
+<div *ngIf="filterText.length>1" class="alert alert-primary"> 
+    {{filterText}} aradınız
+</div>
+<!-- *ngIf="filterText" -> filterText var ise demek ortaya çık demek-->
+<!-- [(ngModel)]="filterText" olan yeri kullanıyor -->
+
+<table *ngIf="dataLoaded==true" class="table" style="margin-top:20px ;">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ürün Adı</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Kdv'li Fiyat</th>
+            <th>Stok Adedi</th>
+        </tr>
+    </thead>
+
+    <tr *ngFor="let product of products">
+        <td>{{product.productId}}</td>
+        <td>{{product.productName | uppercase}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.unitPrice |currency}}</td>
+        <td>{{product.unitPrice |vatAdded:18 | currency }}</td> <!-- parametreleri verirken | işaretiyle ayırırız -->
+        <td>{{product.unitsInStock}}</td>
+    </tr>
+</table>

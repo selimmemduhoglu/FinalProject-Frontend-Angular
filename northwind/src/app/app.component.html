@@ -1,0 +1,29 @@
+
+<!-- Welcome to  {{title}} <br>
+Welcome to  {{user}} <br>
+Welcome to  {{product1.productName}} <br> -->
+
+<!-- *ngFor : directive deniyor(Directive:ilgili html elementini manipüle etmeye yarıyor ngFor:li yi tekrarla demek) -->
+<!-- let  var keyword'üne  ziyade güvenli bir şekilde tiplerle çalışabilmemizi sağlıyor -->
+
+
+
+<!-- <ul>
+ <li *ngFor="let product of products" >{{product.productName}}</li>
+</ul> -->
+
+<div class="container">
+    <!-- bu container class ı sayfayı ortalamamızı sağladı -->
+
+    <app-navi></app-navi>
+    <div class="row">
+        <div class="col-md-3">
+            <app-category></app-category> <!--  Standart olan yerlere direkt ver-->
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+            <!--Standart olmayan(sürekli değişecek)olan kısım-->
+        </div>
+    </div>
+   
+</div>

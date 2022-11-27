@@ -1,0 +1,13 @@
+<ul class="list-group">
+  <li  [class]="getAllCategoryClass()" routerLink="/products">Tüm ürünler</li>
+  <!-- Burada ki *ngFor="" : foreach anlamına gelir -->
+  <li (click)="setCurrentCategory(category)" routerLink="/products/category/{{category.categoryId}}"
+    *ngFor="let category of categories" [class]="getCurrentCategoryClass(category)">
+    {{category.categoryName}}</li>
+  <!-- routerLink : Tıklandığında hangi route'a/rotaya gidileceğini belirler -->
+  <!-- Componentteki bir bilgiyle/Bir method a göre değiştirmek istiyorsak class ı köşeli parantez içine yazarız -->
+  <!-- //bizim setCurrent diye bir fonksiyonumuz var ve biz o fonksiyonumuza category yi atıcaz -->
+  <!-- İlk önc ngFor çalışır category belirlenir ondan sonra click içi çalışır -->
+</ul>
+
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} </h5>
