@@ -27,7 +27,7 @@
         </tr>
     </thead>
 
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products | filterPipe:filterText">   <!-- Pipe'ım filterPipe , parametrem ise filterText olacak-->
         <td>{{product.productId}}</td>
         <td>{{product.productName | uppercase}}</td>
         <td>{{product.categoryId}}</td>
