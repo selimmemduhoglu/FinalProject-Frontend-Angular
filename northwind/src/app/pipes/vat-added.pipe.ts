@@ -13,3 +13,4 @@ export class VatAddedPipe implements PipeTransform {
 
 }
 //Pipe ( | ), elimizde ki veriyi görsel olarak daha farklı göstermek için kullanılır (Çok suistimal etme)
+//52.12
